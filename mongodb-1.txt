@@ -1,0 +1,128 @@
+Exercice 1:
+Rédigez la commande permettant de créer une base MongoDB nommée “twisted_db”
+
+use twisted_db
+
+// afficher la liste des bases de données
+show databases
+
+
+Exercice 2:
+Rédigez la commande permettant d’afficher en console toutes les bases MongoDB
+
+show databases
+
+// Créer une collection nommée "users" 
+db.createCollection("users")
+
+
+Exercice 3:
+Rédigez les commandes permettant de :
+créer une base nommée “crooked_db”
+créer, dans cette base, une collection nommée “users”
+d’afficher en console toutes les bases
+
+// Créer une base de données
+use crooked_db
+
+// Créer une collection nommée "users" 
+db.createCollection("users")
+
+// Afficher les collections
+show collections
+
+// Afficher toutes les DB
+show databases
+
+Exercice 4:
+Rédigez les commandes permettant de :
+créer une base nommée “fake_db”
+créer, dans cette base, une collection nommée “fake_users”
+créer, dans cette base, une collection nommée “fake_customers”
+afficher la liste des collections de la base “crooked_db”
+
+// Créer une base de données
+use fake_db
+
+// Créer des collections
+db.createCollection("fake_users") 
+db.createCollection("fake_customers")
+
+// Afficher les collections
+show collections
+
+
+Exercice 5:
+Rédigez les commandes permettant d’insérer dans la collection nommée “fake_users” le document stockant les informations suivantes :
+Un utilisateur nommé “Mick”, habitant à “Chicago”, ayant 64 ans
+
+// Insérer un document dans la collection "fake_users"
+db.fake_users.insert({name:"Mick", city:"Chicago", age:64})
+
+
+// Insérer un JSON dans la collection "wrc_drivers" de la DB "wrc"
+mongoimport --db wrc --collection wrc_drivers --file /home/val/Bureau/wrc-drivers.json --jsonArray
+
+
+Exercice 6:
+Rédigez les commandes permettant de :
+Créer une base nommée “magic_db”
+Créer, dans cette base, une collection nommée “magic_users”
+Insérer un document correspondant à un utilisateur nommé “Johnson”
+Récupérer la liste des documents contenus dans cette collection
+
+use magic_db
+
+db.createCollection("magic_users")
+db.magic_users.insert({name:"Johnson"})
+
+// Récupérer la liste des documents dans la collection
+db.magic_users.find()
+
+
+Exercice 7:
+Rédigez les commandes permettant :
+D’ajouter dans la base “magic_db”, une collection nommée “magic_products”
+D’insérer un document correspondant à un produit nommé “Crazy wine”
+D’insérer un document correspondant à un produit nommé “Weird shoes”
+Récupérer la liste des documents contenus dans cette collection 
+Récupérer un seul des documents contenus dans cette collection
+
+db.createCollection("magic_products")
+db.magic_products.insert({name:"Crazy wine"})
+db.magic_products.insert({name:"Weird shoes"})
+db.magic_products.find()
+
+//Récupérer un seul document dans la collection
+db.magic_products.findOne()
+
+
+Exercice 8: 
+Rédigez les commandes permettant de :
+Sélectionner la base nommée “magic_db”
+Afficher de manière lisible tous les documents contenus dans la collection “magic_users” de cette base
+
+use magic_db
+db.magic_users.find().pretty()
+
+
+Exercice 9:
+En imaginant que vous soyez en train de travailler sur une collection nommée “users”, comment récupérer l’ensemble des documents correspondant aux utilisateurs dont l’age est de 20 ans ?
+
+Note : On suppose qu’une propriété nommée “age” existe dans ces documents, et que cette propriété est de type Entier
+
+db.users.find({"age":20})
+
+
+Exercice 10:
+En imaginant que vous soyez en train de travailler sur une collection nommée “products”, comment récupérer l’ensemble des documents correspondant aux produits répondant aux critères suivant :
+les produits sont en vente
+les produits coûtent 100 euros
+
+db.products.find({"on_sale":true, "price":100})
+
+
+Exercice 11:
+Rédigez la commande permettant de récupérer tous les groupes composés d’un membre nommé “Eleni”.
+
+db.bands.find({"members": "Eleni"})
